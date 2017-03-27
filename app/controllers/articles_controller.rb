@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  include ArticlesHelper
+
   def index
     @article = Article.all
   end
@@ -33,11 +35,5 @@ class ArticlesController < ApplicationController
     @article.update(article_params)
     flash.notice = "Article '#{@article.title}' Updated!"
     redirect_to article_path(@article)
-  end
-
-  private
-
-  def article_params
-    params.require(:article).permit(:title, :body)
   end
 end
