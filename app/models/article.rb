@@ -5,7 +5,7 @@ class Article < ActiveRecord::Base
 
   def tag_list
     self.tags.collect do |tag|
-      tag.named
+      tag.name
     end.join(", ")
   end
 
